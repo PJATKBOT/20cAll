@@ -8,5 +8,7 @@ public class Main {
         Szyfr s= new Szyfr("hamster.txt");
         s.cript();
         s.show();
+        s.decript();
+        s.show();
     }
 }

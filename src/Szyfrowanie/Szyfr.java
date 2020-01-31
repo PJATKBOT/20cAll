@@ -36,24 +36,25 @@ public class Szyfr {
     public void cript(){
         char c;
         StringBuilder tmp= new StringBuilder();
-        //String str=sb.toString();
+
         for (int i = 0; i <sb.length() ; i++) {
             if(!Character.isWhitespace(sb.charAt(i))) {
                 c = (char) (sb.charAt(i) + 3);
                 //Wyjatek Dla Wielkich Liter
-                if (sb.charAt(i) > 64 && sb.charAt(i) < 91) {
+                if (Character.isUpperCase(sb.charAt(i))) {
                     if (c > 90) {
                         c = (char) (c - 26);
                     }
                 }
                 //Wyjatek Dla Malych Liter
-                if (sb.charAt(i) > 96 && sb.charAt(i) < 123) {
+                if (Character.isLowerCase(sb.charAt(i))) {
                     if (c > 122) {
                         c = (char) (c - 26);
                     }
                 }
-
                 tmp.append(c);
+            }else{
+                tmp.append(" ");
             }
         }
         sb= new StringBuilder(tmp);
@@ -62,7 +63,27 @@ public class Szyfr {
     public void decript(){
         char c;
         StringBuilder tmp= new StringBuilder();
-
+        for (int i = 0; i <sb.length() ; i++) {
+            if(!Character.isWhitespace(sb.charAt(i))){
+                c=(char)(sb.charAt(i)-3);
+                //Dla Wielkich Liter
+                if(Character.isUpperCase(sb.charAt(i))){
+                    if(c<65){
+                        c= (char) (c+26);
+                    }
+                }
+                //Dla Malych Liter
+                if(Character.isLowerCase(sb.charAt(i))){
+                    if(c<97){
+                        c= (char) (c+26);
+                    }
+                }
+                tmp.append(c);
+            }else{
+                tmp.append(" ");
+            }
+        }
+        sb= new StringBuilder(tmp);
     }
 
 
