@@ -14,6 +14,8 @@ public class Szyfr {
         sb= new StringBuilder();
         readFile(sb,filePath);
     }
+
+    //Wczytywanie z pliku
     public void readFile(StringBuilder sb, String filePath){
         try {
             FileReader fr = new FileReader(filePath);
@@ -29,24 +31,33 @@ public class Szyfr {
         }
     }
 
+    //Wypisanie
     public void show(){
         System.out.println(sb);
     }
 
+    //Szyfrowanie szyfrem cezara
     public void cript(){
         char c;
+        //tmp: bedzie przechowywala zaszyfrowany tekst
         StringBuilder tmp= new StringBuilder();
 
         for (int i = 0; i <sb.length() ; i++) {
+
+            //Sprawdzenie czy to jest bialy znak
             if(!Character.isWhitespace(sb.charAt(i))) {
+
+                //Przesuniecie litery alfabetu o 3 w prawo
                 c = (char) (sb.charAt(i) + 3);
-                //Wyjatek Dla Wielkich Liter
+
+                //Wyjatek X,Y,Z z powrotem na poczatek alfabetu
                 if (Character.isUpperCase(sb.charAt(i))) {
                     if (c > 90) {
                         c = (char) (c - 26);
                     }
                 }
-                //Wyjatek Dla Malych Liter
+
+                //Wyjatek Dla x,y,z z powrotem na poczatek alfabetu
                 if (Character.isLowerCase(sb.charAt(i))) {
                     if (c > 122) {
                         c = (char) (c - 26);
@@ -57,22 +68,31 @@ public class Szyfr {
                 tmp.append(" ");
             }
         }
+        //Nadpisanie zawartosci sb zawartoscia tmp
         sb= new StringBuilder(tmp);
     }
 
+    //Deszyfrowanie
     public void decript(){
         char c;
+        //tmp: bedzie przechowywala zaszyfrowany tekst
         StringBuilder tmp= new StringBuilder();
         for (int i = 0; i <sb.length() ; i++) {
+
+            //Sprawdzenie czy to jest bialy znak
             if(!Character.isWhitespace(sb.charAt(i))){
+
+                //Przesuniecie litery alfabetu o 3 w lewo
                 c=(char)(sb.charAt(i)-3);
-                //Dla Wielkich Liter
+
+                //Wyjatek A,B,C z przejsciem na koniec alfabetu
                 if(Character.isUpperCase(sb.charAt(i))){
                     if(c<65){
                         c= (char) (c+26);
                     }
                 }
-                //Dla Malych Liter
+
+                //Wyjatek a,b,c z przejsciem na koniec alfabetu
                 if(Character.isLowerCase(sb.charAt(i))){
                     if(c<97){
                         c= (char) (c+26);
@@ -83,9 +103,7 @@ public class Szyfr {
                 tmp.append(" ");
             }
         }
+        //Nadpisanie zawartosci sb zawartoscia tmp
         sb= new StringBuilder(tmp);
     }
-    //afsdfasd
-
-
 }
