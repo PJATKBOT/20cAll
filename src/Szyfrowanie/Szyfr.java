@@ -85,6 +85,7 @@ public class Szyfr {
         }
         sb= new StringBuilder(tmp);
     }
+    //afsdfasd
 
 
 }
