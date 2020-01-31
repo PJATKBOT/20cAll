@@ -1,4 +1,4 @@
-package Kasper;
+package Szyfrowanie;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;

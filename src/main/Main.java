@@ -1,10 +1,6 @@
 package main;
 
-import Kasper.Szyfr;
-
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import Szyfrowanie.Szyfr;
 
 public class Main {
     public static void main(String[] args) {
